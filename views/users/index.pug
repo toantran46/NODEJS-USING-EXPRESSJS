@@ -1,0 +1,16 @@
+extends ../layouts/common 
+block content
+	h1 Users
+
+	a(href='/users/create') New 
+
+	form(action="/users/search/", type="GET")
+		input(type="text", name ="q", value=ques, class="form-control")
+		button(class="btn btn-primary") Search
+
+	ul
+		each user in users
+			li
+			span= user.name
+			span &nbsp;
+			a(href='/users/' + user.id) View
